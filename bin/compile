@@ -39,7 +39,7 @@ cd $BUILD_DIR
 tar -xvf libsodium-0.4.2.tar.gz
 cd libsodium-0.4.2
 echo "-----> Configuring libsodium"
-./configure 2>&1 | indent
+./configure --prefix=/usr 2>&1 | indent
 echo "-----> Compiling libsodium"
 make 2>&1 | indent
 make install 2>&1 | indent
