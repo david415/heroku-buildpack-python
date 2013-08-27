@@ -43,11 +43,7 @@ echo "-----> Configuring libsodium"
 echo "-----> Compiling libsodium"
 make 2>&1 | indent
 make install 2>&1 | indent
-#LD_RUN_PATH=/usr/local/lib LD_LIBRARY_PATH=/usr/local/lib pip install pynacl
-pip install pynacl
 cd
-
-
 
 
 # Fail fast and fail hard.
