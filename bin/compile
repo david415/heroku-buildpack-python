@@ -34,17 +34,19 @@ indent() {
   RE="s/^/       /"
   [ $(uname) == "Darwin" ] && sed -l "$RE" || sed -u "$RE"
 }
-cd $BUILD_DIR
-/usr/bin/curl http://download.libsodium.org/libsodium/releases/libsodium-0.4.2.tar.gz -o libsodium-0.4.2.tar.gz
-tar -xvf libsodium-0.4.2.tar.gz
+cd $CACHED_DIRS
+if [ ! -d "libsodium-0.4.2" ]; then
+ /usr/bin/curl http://download.libsodium.org/libsodium/releases/libsodium-0.4.2.tar.gz -o libsodium-0.4.2.tar.gz
+ tar -xvf libsodium-0.4.2.tar.gz
+fi
 cd libsodium-0.4.2
 echo "-----> Configuring libsodium"
-./configure --prefix=/usr 2>&1 | indent
+./configure --prefix=$BUILD_DIR/libsodium-0.4.2 2>&1 | indent
 echo "-----> Compiling libsodium"
 make 2>&1 | indent
 make install 2>&1 | indent
 cd
-
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$BUILD_DIR/libsodium-0.4.2 2
 
 # Fail fast and fail hard.
 set -eo pipefail
