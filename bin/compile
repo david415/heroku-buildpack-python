@@ -46,7 +46,7 @@ echo "-----> Compiling libsodium"
 make 2>&1 | indent
 make install 2>&1 | indent
 cd
-export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$BUILD_DIR/libsodium-0.4.2 2
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$BUILD_DIR/libsodium-0.4.2
 
 # Fail fast and fail hard.
 set -eo pipefail
