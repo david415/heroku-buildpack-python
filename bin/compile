@@ -33,7 +33,7 @@ DISTRIBUTE_VERSION="0.6.36"
 
 
 cd $BUILD_DIR
-wget http://download.libsodium.org/libsodium/releases/libsodium-0.4.2.tar.gz
+/usr/bin/curl http://download.libsodium.org/libsodium/releases/libsodium-0.4.2.tar.gz
 tar -xvf libsodium-0.4.2.tar.gz
 cd libsodium-0.4.2
 echo "-----> Configuring libsodium"
