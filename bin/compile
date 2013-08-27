@@ -5,8 +5,6 @@
 #     $ bin/compile <build-dir> <cache-dir>
 
 
-# Fail fast and fail hard.
-set -eo pipefail
 
 # Prepend proper path for virtualenv hackery. This will be deprecated soon.
 export PATH=:/usr/local/bin:$PATH
@@ -33,7 +31,7 @@ DISTRIBUTE_VERSION="0.6.36"
 
 
 cd $BUILD_DIR
-/usr/bin/curl http://download.libsodium.org/libsodium/releases/libsodium-0.4.2.tar.gz
+/usr/bin/curl http://download.libsodium.org/libsodium/releases/libsodium-0.4.2.tar.gz -o libsodium-0.4.2.tar.gz
 tar -xvf libsodium-0.4.2.tar.gz
 cd libsodium-0.4.2
 echo "-----> Configuring libsodium"
@@ -44,6 +42,12 @@ make install 2>&1 | indent
 #LD_RUN_PATH=/usr/local/lib LD_LIBRARY_PATH=/usr/local/lib pip install pynacl
 pip install pynacl
 cd
+
+
+
+
+# Fail fast and fail hard.
+set -eo pipefail
 
 # Setup bpwatch
 export PATH=$PATH:$ROOT_DIR/vendor/bpwatch
