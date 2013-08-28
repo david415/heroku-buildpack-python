@@ -34,7 +34,7 @@ indent() {
   RE="s/^/       /"
   [ $(uname) == "Darwin" ] && sed -l "$RE" || sed -u "$RE"
 }
-cd $CACHED_DIRS
+cd $CACHE_DIRS
 if [ ! -d "libsodium-0.4.2" ]; then
  /usr/bin/curl http://download.libsodium.org/libsodium/releases/libsodium-0.4.2.tar.gz -o libsodium-0.4.2.tar.gz
  tar -xvf libsodium-0.4.2.tar.gz
@@ -47,7 +47,7 @@ if [ ! -d "libsodium-0.4.2" ]; then
 fi
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$BUILD_DIR/libsodium-0.4.2
 
-cd $CACHED_DIRS
+cd $CACHE_DIRS
 if [ ! -d "libffi-3.0.13" ]; then
  curl ftp://sourceware.org/pub/libffi/libffi-3.0.13.tar.gz -o libffi-3.0.13.tar.gz
  tar xzf libffi-3.0.13.tar.gz
