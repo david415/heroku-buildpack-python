@@ -45,7 +45,7 @@ if [ ! -d "libsodium-0.4.2" ]; then
  make 2>&1 | indent
  make install 2>&1 | indent
 fi
-export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$BUILD_DIR/libsodium-0.4.2
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/app/libsodium-0.4.2
 
 cd $CACHE_DIRS
 if [ ! -d "libffi-3.0.13" ]; then
@@ -58,7 +58,7 @@ if [ ! -d "libffi-3.0.13" ]; then
  make 2>&1 | indent
  make install 2>&1 | indent
 fi
-export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$BUILD_DIR/libffi-3.0.13
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/app/libffi-3.0.13
 
 
 # Fail fast and fail hard.
