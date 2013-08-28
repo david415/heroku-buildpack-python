@@ -58,7 +58,10 @@ if [ ! -d "libffi-3.0.13" ]; then
  make 2>&1 | indent
  make install 2>&1 | indent
 fi
-export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/app/libffi-3.0.13
+cd $BUILD_DIR/libffi-3.0.13
+dirname `find . -name libffi.pc`
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/app/libffi-3.0.13/$(dirname `find . -name libffi.pc` | sed 's,^[^/]*/,,')
+
 
 
 # Fail fast and fail hard.
